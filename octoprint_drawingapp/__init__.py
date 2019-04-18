@@ -11,7 +11,7 @@ from __future__ import absolute_import
 
 import octoprint.plugin
 
-class DrawingApp(octoprint.plugin.StartupPlugin,
+class DrawingappPlugin(octoprint.plugin.StartupPlugin,
 						octoprint.plugin.TemplatePlugin,
 						octoprint.plugin.SettingsPlugin,
 						octoprint.plugin.AssetPlugin,
