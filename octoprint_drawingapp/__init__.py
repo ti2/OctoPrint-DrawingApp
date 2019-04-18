@@ -11,7 +11,7 @@ from __future__ import absolute_import
 
 import octoprint.plugin
 
-class SimpleemergencystopPlugin(octoprint.plugin.StartupPlugin,
+class DrawingApp(octoprint.plugin.StartupPlugin,
 						octoprint.plugin.TemplatePlugin,
 						octoprint.plugin.SettingsPlugin,
 						octoprint.plugin.AssetPlugin,
@@ -59,7 +59,7 @@ class SimpleemergencystopPlugin(octoprint.plugin.StartupPlugin,
 	def get_assets(self):
 
 		return dict(
-			js=["js/simpleemergencystop.js"],
+			js=["js/drawingapp.js"],
 		)
 
 	##~~ Softwareupdate hook
@@ -69,18 +69,18 @@ class SimpleemergencystopPlugin(octoprint.plugin.StartupPlugin,
 		# Plugin here. See https://github.com/foosel/OctoPrint/wiki/Plugin:-Software-Update
 		# for details.
 		return dict(
-			simpleemergencystop=dict(
-				displayName="Simple Emergency Stop",
+			drawingapp=dict(
+				displayName="Drawing App",
 				displayVersion=self._plugin_version,
 
 				# version check: github repository
 				type="github_release",
-				user="BrokenFire",
-				repo="OctoPrint-SimpleEmergencyStop",
+				user="titou",
+				repo="OctoPrint-DrawingApp",
 				current=self._plugin_version,
 
 				# update method: pip
-				pip="https://github.com/BrokenFire/OctoPrint-SimpleEmergencyStop/archive/{target_version}.zip"
+				pip="https://github.com/BrokenFire/OctoPrint-DrawingApp/archive/{target_version}.zip"
 			)
 		)
 
@@ -88,11 +88,11 @@ class SimpleemergencystopPlugin(octoprint.plugin.StartupPlugin,
 # If you want your plugin to be registered within OctoPrint under a different name than what you defined in setup.py
 # ("OctoPrint-PluginSkeleton"), you may define that here. Same goes for the other metadata derived from setup.py that
 # can be overwritten via __plugin_xyz__ control properties. See the documentation for that.
-__plugin_name__ = "Simple Emergency Stop"
+__plugin_name__ = "Drawing App"
 
 def __plugin_load__():
 	global __plugin_implementation__
-	__plugin_implementation__ = SimpleemergencystopPlugin()
+	__plugin_implementation__ = DrawingappPlugin()
 
 	global __plugin_hooks__
 	__plugin_hooks__ = {
