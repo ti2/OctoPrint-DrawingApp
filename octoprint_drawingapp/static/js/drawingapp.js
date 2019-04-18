@@ -1,11 +1,11 @@
 /*
- * View model for OctoPrint-Simpleemergencystop
+ * View model for OctoPrint-Drawingapp
  *
- * Author: Sebastien Clement
+ * Author: titou
  * License: AGPLv3
  */
 $(function() {
-    function SimpleemergencystopViewModel(parameters) {
+    function DrawingappViewModel(parameters) {
         var self = this;
         self.settings = undefined;
         self.allSettings = parameters[0];
@@ -15,7 +15,7 @@ $(function() {
 
         self.onAfterBinding = function() {
             self.confirmation = $("#confirmation");
-            self.settings = self.allSettings.settings.plugins.simpleemergencystop;
+            self.settings = self.allSettings.settings.plugins.drawingapp;
         };
 
         self.click = function () {
@@ -28,7 +28,7 @@ $(function() {
 
         self.sendCommand = function () {
             $.ajax({
-                 url: API_BASEURL+"plugin/simpleemergencystop",
+                 url: API_BASEURL+"plugin/drawingapp",
                  type: "POST",
                  dataType: "json",
                  data: JSON.stringify({
@@ -52,10 +52,10 @@ $(function() {
 
     // view model class, parameters for constructor, container to bind to
     OCTOPRINT_VIEWMODELS.push([
-        SimpleemergencystopViewModel,
+        DrawingappViewModel,
 
         ["settingsViewModel","loginStateViewModel","printerStateViewModel"],
 
-        ["#navbar_plugin_simpleemergencystop"]
+        ["#navbar_plugin_drawingapp"]
     ]);
 });
